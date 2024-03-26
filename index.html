@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="https://media.discordapp.net/attachments/1101785167233826846/1222247312940859512/clock.png?ex=66158583&is=66031083&hm=76e835bdfa6166314d84b4bd2b986e100683dd69dfb59206e91074e7207f40fa&=&format=webp&quality=lossless&width=437&height=437">
+  <title>Time Display</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      background-image: url('https://media.discordapp.net/attachments/1101785167233826846/1205861829830512690/4.png?ex=66114858&is=65fed358&hm=2521106a3a733eddc231e444ab612c4b55f0956ee906c6a2c84b85524e3340aa&=&format=webp&quality=lossless&width=1177&height=662'); /* Replace 'background.jpg' with the path to your background image */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: rgba(12, 32, 57, 0.8);
+      padding: 20px;
+      width: 1900px;
+      height: 550px;
+    }
+
+    #time {
+  font-size: 72px; /* Adjust the font size as needed */
+  text-align: center;
+  color: white; /* Change the text color if needed */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="time"></div>
+  </div>
+
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    updateTime();
+    setInterval(updateTime, 1000);
+  </script>
+</body>
+</html>
